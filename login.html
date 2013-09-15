@@ -1,0 +1,33 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Login</title> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+	<style>
+		.loginform {
+			width: 100%;
+			position: absolute; 
+			top: 30%; 
+			margin-top: -1.2em;
+		}
+	</style>
+</head> 
+<body> 
+<div data-role="page" align="center">
+	<div class = 'loginform' data-role="content" data-inset="true">	
+	<h1>ImageBoard</h1>	
+		<form>
+			<input type="text" name="username" id="username" placeholder="Username"/>
+			<br><br>
+			<input type="password" name="password" id="password" placeholder="Password"/>
+			<br>			
+			<input type="submit" value="Log In" data-role="button" data-inline="true" data-theme="b"/>
+			<br>
+			<a href = "signup.html" data-ajax="false">Sign Up</a>
+			</form>
+	</div>
+</div>
+</body>
+</html>
