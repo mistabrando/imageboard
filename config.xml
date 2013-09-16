@@ -12,10 +12,10 @@
         Next level    
     </description>
 
-    <feature name="http://api.phonegap.com/1.0/camera"/>
-
     <preference name="fullscreen" value="true" />
-    
-    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 
+    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    
 </widget>
