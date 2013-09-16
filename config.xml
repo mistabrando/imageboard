@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.imageboard"
-        version   = "1.0.0">
+        version   = "2.5.0">
 
     <name>ImageBoard</name>
 
@@ -15,7 +15,10 @@
     <preference name="fullscreen" value="true" />
 
     <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
+    <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/camera"/>
     <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
     
 </widget>
