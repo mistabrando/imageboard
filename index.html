@@ -9,9 +9,10 @@
 		}
 		img {
 			width: 100%;
+			padding: 20px;
 		}
 		.thumbnail {
-			padding: 40px;
+			width: 100%;
 		}
 		.comments {
 			width: 88%;
@@ -23,13 +24,28 @@
 		button {
 			width: 100%;
 		}
+		body {
+			overflow-x: hidden;
+		}
 	</style>
 </head>
-<body>
+<body align = "center">
 	<div class = "row">
-		<div class = "col-xs-12">
+		<div class = "thumbnail">
+			<img src = "http://distilleryimage4.ak.instagram.com/de8532f21d9711e3a2fe22000a1f8ce3_7.jpg"/>
+			<div class = "caption">
+				<h3>
+					Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+				</h3>
+				<p>
+					<button class = "btn btn-primary btn-large icon-heart icon-2x"></button>&nbsp;
+					<button class = "btn btn-default btn-large icon-comment icon-2x"></button>
+				</p>			
+			</div>
+		</div>
+		<div class = "comments">
 			<div class = "thumbnail">
-				<img src = "http://distilleryimage4.ak.instagram.com/de8532f21d9711e3a2fe22000a1f8ce3_7.jpg"/>
+				<img src = "http://distilleryimage11.ak.instagram.com/54ec879e1d7d11e3a9d722000aeb0b90_7.jpg"/>
 				<div class = "caption">
 					<h3>
 						Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
@@ -40,31 +56,17 @@
 					</p>			
 				</div>
 			</div>
-			<div class = "comments">
-				<div class = "thumbnail">
-					<img src = "http://distilleryimage11.ak.instagram.com/54ec879e1d7d11e3a9d722000aeb0b90_7.jpg"/>
-					<div class = "caption">
-						<h3>
-							Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-						</h3>
-						<p>
-							<button class = "btn btn-primary btn-large icon-heart icon-2x"></button>&nbsp;
-							<button class = "btn btn-default btn-large icon-comment icon-2x"></button>
-						</p>			
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 	<div class="row navbar-fixed-bottom" align = "center">
 		<div class = "col-xs-4 btn btn-default">
-			<i class = 'icon-refresh icon-3x'></i>
+			<i class = 'icon-refresh icon-2x'></i>
 		</div>
 		<div class = "col-xs-4 btn btn-primary">
-			<i class = 'icon-camera-retro icon-3x'></i>
+			<i class = 'icon-camera-retro icon-2x'></i>
 		</div>
 		<div class = "col-xs-4 btn btn-default">
-			<i class = 'icon-list icon-3x'></i>
+			<i class = 'icon-list icon-2x'></i>
 		</div>
 	</div>
 </body>
