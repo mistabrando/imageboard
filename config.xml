@@ -12,5 +12,6 @@
         Next level    
     </description>
     <preference name="fullscreen" value="true" />
+    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 
 </widget>
