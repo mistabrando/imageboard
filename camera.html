@@ -7,18 +7,19 @@
     <script type="text/javascript" charset="utf-8">
       document.addEventListener('deviceready', onDeviceReady, false);
       function onDeviceReady(){
-              function startCamera(){
-                navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
-                    destinationType: Camera.DestinationType.DATA_URL
-                 });               
-              }
-              function onSuccess(imageData){
-                  var image=document.getElementById('myImage');
-                  image.src='data:image/jpeg;base64,'+imageData;
-              }
-              function onFail(message){
-                  alert(message);
-              }
+        
+      }
+      function startCamera(){
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+            destinationType: Camera.DestinationType.DATA_URL
+         });               
+      }
+      function onSuccess(imageData){
+          var image=document.getElementById('myImage');
+          image.src='data:image/jpeg;base64,'+imageData;
+      }
+      function onFail(message){
+          alert(message);
       }
     </script>
   </head>
