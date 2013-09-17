@@ -7,7 +7,9 @@
     <script type="text/javascript" charset="utf-8">
       document.addEventListener('deviceready', onDeviceReady, false);
       function onDeviceReady(){
-              navigator.camera.getPicture(onSuccess, onFail, {quality:50});
+              function startCamera(){
+                navigator.camera.getPicture(onSuccess, onFail, {quality:50});
+              }
               function onSuccess(imageData){
                   var image=document.getElementById('myImage');
                   image.src='data:image/jpeg;base64,'+imageData;
@@ -19,7 +21,7 @@
     </script>
   </head>
   <body>
-    <button onclick="yayCamera();">Capture Photo</button> <br>
+    <button onclick="startCamera();">Capture Photo</button> <br>
     <div id = "myImage"></div>
   </body>
 </html>
