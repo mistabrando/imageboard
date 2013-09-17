@@ -7,15 +7,8 @@
     <script type="text/javascript" charset="utf-8">
 
       function startCamera(){
-        var width, height = 600;
         navigator.camera.getPicture(onSuccess, onFail, {
           quality : 75, 
-          destinationType : Camera.DestinationType.DATA_URL, 
-          sourceType : Camera.PictureSourceType.CAMERA, 
-          allowEdit : true,
-          encodingType: Camera.EncodingType.JPEG,
-          targetWidth: 100,
-          targetHeight: 100 
         });               
       }
       function onSuccess(imageData){
