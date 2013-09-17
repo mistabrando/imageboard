@@ -9,13 +9,13 @@
       function startCamera(){
         var width, height = 600;
         navigator.camera.getPicture(onSuccess, onFail, {
-          quality : 80,
-          allowEdit : false,
-          destinationType : navigator.camera.DestinationType.DATA_URL, 
-          encodingType : navigator.camera.EncodingType.PNG, 
-          sourceType : navigator.camera.PictureSourceType.CAMERA,
-          targetWidth : width,
-          targetHeight : height
+          quality : 75, 
+          destinationType : Camera.DestinationType.DATA_URL, 
+          sourceType : Camera.PictureSourceType.CAMERA, 
+          allowEdit : true,
+          encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100 
         });               
       }
       function onSuccess(imageData){
