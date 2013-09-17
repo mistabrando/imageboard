@@ -6,23 +6,16 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
-      function startCamera(){
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
-      }
+      navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
+
       function onSuccess(imageData) {
-        var image = document.getElementById('myImage');
-        image.src = "data:image/jpeg;base64," + imageData;
+          var image = document.getElementById('myImage');
+          image.src = "data:image/jpeg;base64," + imageData;
       }
 
       function onFail(message) {
-        alert('Failed because: ' + message);
-      }
-
-      document.addEventListener('deviceready', onDeviceReady, false);
-      function onDeviceReady(){
-        startCamera();
-      }
-      
+          alert('Failed because: ' + message);
+      }          
     </script>
   </head>
   <body>
