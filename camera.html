@@ -3,9 +3,8 @@
   <head>
     <title>Capture Photo</title>
 
-    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
-    function yayCamera(){
       document.addEventListener('deviceready', onDeviceReady, false);
       function onDeviceReady(){
               navigator.camera.getPicture(onSuccess, onFail, {quality:50});
@@ -17,7 +16,6 @@
                   alert(message);
               }
       }
-    }
     </script>
   </head>
   <body>
