@@ -11,6 +11,8 @@
           quality: 50,
           targetWidth: 500,
           targetHeight: 500,
+          allowEdit : false,
+          encodingType : navigator.camera.EncodingType.PNG, 
           destinationType: Camera.DestinationType.DATA_URL
         }
         navigator.camera.getPicture(onSuccess, onFail, options);               
