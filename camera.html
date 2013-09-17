@@ -7,15 +7,16 @@
     <script type="text/javascript" charset="utf-8">
 
       function startCamera(){
-        var options = {
-          quality: 50,
-          targetWidth: 500,
-          targetHeight: 500,
+        var width, height = 600;
+        navigator.camera.getPicture(onSuccess, onFail, {
+          quality : 80,
           allowEdit : false,
+          destinationType : navigator.camera.DestinationType.DATA_URL, 
           encodingType : navigator.camera.EncodingType.PNG, 
-          destinationType: Camera.DestinationType.DATA_URL
-        }
-        navigator.camera.getPicture(onSuccess, onFail, options);               
+          sourceType : navigator.camera.PictureSourceType.CAMERA,
+          targetWidth : width,
+          targetHeight : height
+        });               
       }
       function onSuccess(imageData){
           var image=document.getElementById('myImage');
