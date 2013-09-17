@@ -8,7 +8,9 @@
 
       function startCamera(){
         navigator.camera.getPicture(onSuccess, onFail, {
-          quality : 75, 
+          quality : 75,
+          targetWidth: 1000,
+          targetHeight: 1000 
         });               
       }
       function onSuccess(imageData){
