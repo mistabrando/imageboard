@@ -6,21 +6,21 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
-
       function startCamera(){
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });               
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
       }
-      function onSuccess(imageData){
-          var image=document.getElementById('myImage');
-          image.src='data:image/jpeg;base64,'+imageData;
+      function onSuccess(imageData) {
+        var image = document.getElementById('myImage');
+        image.src = "data:image/jpeg;base64," + imageData;
       }
-      function onFail(message){
-          alert(message);
+
+      function onFail(message) {
+        alert('Failed because: ' + message);
       }
 
       document.addEventListener('deviceready', onDeviceReady, false);
       function onDeviceReady(){
-          startCamera();
+        startCamera();
       }
       
     </script>
@@ -28,7 +28,7 @@
   <body>
     <button onclick="startCamera();">Capture Photo</button> <br>
     <p class = "well">
-      <img id = "myImage"></img>
+      <img id = "myImage" src=""></img>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
     <a class = "col-xs-12 btn btn-primary" href = "camera.html">
