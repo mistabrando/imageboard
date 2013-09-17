@@ -7,11 +7,7 @@
     <script type="text/javascript" charset="utf-8">
 
       function startCamera(){
-        navigator.camera.getPicture(onSuccess, onFail, {
-          quality : 75,
-          targetWidth: 1000,
-          targetHeight: 1000 
-        });               
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 50 });               
       }
       function onSuccess(imageData){
           var image=document.getElementById('myImage');
