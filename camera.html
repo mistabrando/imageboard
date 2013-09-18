@@ -8,13 +8,9 @@
     <script type="text/javascript" charset="utf-8">
       
       function onDeviceReady() {
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 80 }); 
       }
-
-      function startCamera() {
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
-      }
-
+      
       function onSuccess(imageData) {
         var image = document.getElementById('myImage');
         image.src = imageData;
@@ -28,10 +24,10 @@
 
     </script>
   </head>
-  <body>
-    <button onclick="startCamera();">Capture Photo</button> <br>
+  <body align = "center">
     <p class = "well">
       <img id = "myImage" width = "100%"></img>
+      <textarea width = "100%"></textarea>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
     <a class = "col-xs-12 btn btn-primary" href = "camera.html">
