@@ -16,7 +16,7 @@
     function onSuccess(imageData) {
       var image = document.getElementById('myImage');
       image.src = imageData;
-      $(".form-control").append("<div>" + imageData + "</div>");
+      $("#myImage").append(imageData);
     }
 
     function onFail(message) {
