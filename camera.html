@@ -16,14 +16,36 @@
     function onSuccess(imageData) {
       var image = document.getElementById('myImage');
       image.src = imageData;
-      $("#imageInfo").append(imageData);
+      window.imageLocation = imageData;
     }
 
     function onFail(message) {
         alert('Failed because: ' + message);
     }
 
+    function uploadPhoto(imageURI) {
+        var options = new FileUploadOptions();
+        options.fileKey="image";
+        options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+        options.mimeType="image/jpeg";
+
+        var ft = new FileTransfer();
+        ft.upload(imageURI, encodeURI("http://imgbrd.aws.af.cm/uploadImage"), win, fail, options);
+    }
+
+    function win() {
+      $("#submit").html("");
+      $("#submit").append("<icon class = 'icon-smile icon-2x'></icon>");
+      window.location.href = document.referrer;
+    }
+
+    function fail() {
+      alert("Upload Failed");
+      window.location.href = document.referrer;
+    }
+
     $(function() {
+
       document.addEventListener("deviceready",onDeviceReady,false);
       
       $("#submit").bind("click", function(e){
@@ -31,7 +53,8 @@
         $("#submit").unbind("click");
         $("#submit").html("");
         $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
-      });
+        uploadPhoto(window.imageLocation);
+        });
     });
 
     </script>
