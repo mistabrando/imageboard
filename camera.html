@@ -10,7 +10,7 @@
       function onDeviceReady() {
         navigator.camera.getPicture(onSuccess, onFail, { quality: 80 }); 
       }
-      
+
       function onSuccess(imageData) {
         var image = document.getElementById('myImage');
         image.src = imageData;
@@ -26,8 +26,8 @@
   </head>
   <body align = "center">
     <p class = "well">
-      <img id = "myImage" width = "100%"></img>
-      <textarea width = "100%"></textarea>
+      <img id = "myImage" width = "100%"></img><br><br>
+      <textarea class="form-control" rows="3"></textarea>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
     <a class = "col-xs-12 btn btn-primary" href = "camera.html">
