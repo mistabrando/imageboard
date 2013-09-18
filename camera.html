@@ -16,6 +16,7 @@
     function onSuccess(imageData) {
       var image = document.getElementById('myImage');
       image.src = imageData;
+      $("#submit").text(imageData);
     }
 
     function onFail(message) {
@@ -30,7 +31,6 @@
         $("#submit").unbind("click");
         $("#submit").html("");
         $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
-        $("#submit").text(imageData);
     });
 
     </script>
