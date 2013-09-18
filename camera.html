@@ -16,7 +16,7 @@
     function onSuccess(imageData) {
       var image = document.getElementById('myImage');
       image.src = imageData;
-      $("#myImage").append(imageData);
+      $("#imageInfo").append(imageData);
     }
 
     function onFail(message) {
@@ -38,8 +38,9 @@
   </head>
   <body align = "center">
     <p class = "well">
-      <img id = "myImage" width = "100%"></img><br><br>
-      <textarea class="form-control" rows="3"></textarea>
+      <textarea class="form-control" rows="3"></textarea><br><br>
+      <div id = "imageInfo"></div>
+      <img id = "myImage" width = "100%"></img>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
     <a class = "col-xs-12 btn btn-primary" id = "submit">
