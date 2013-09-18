@@ -4,23 +4,36 @@
     <title>Capture Photo</title>
     <link href="bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
-      
-      function onDeviceReady() {
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 80 }); 
-      }
+    
+    function onDeviceReady() {
+      navigator.camera.getPicture(onSuccess, onFail, { 
+        quality: 80 ,
+        destinationType: Camera.DestinationType.DATA_URL
+      }); 
+    }
 
-      function onSuccess(imageData) {
-        var image = document.getElementById('myImage');
-        image.src = imageData;
-      }
+    function onSuccess(imageData) {
+      var image = document.getElementById('myImage');
+      image.src = "data:image/jpeg;base64," + imageData;
+      alert(imageData);
+    }
 
-      function onFail(message) {
-          alert('Failed because: ' + message);
-      } 
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
 
+    $(function() {
       document.addEventListener("deviceready",onDeviceReady,false);
+      
+      $("#submit").click(function(e){
+        e.preventDefault();
+        $("#submit").html("");
+        $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
+      });
+    });
 
     </script>
   </head>
@@ -30,7 +43,7 @@
       <textarea class="form-control" rows="3"></textarea>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
-    <a class = "col-xs-12 btn btn-primary" href = "camera.html">
+    <a class = "col-xs-12 btn btn-primary" id = "submit">
       <i class = 'icon-ok icon-2x'></i>
     </a>
   </div>
