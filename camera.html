@@ -17,7 +17,7 @@
 
       function onSuccess(imageData) {
         var image = document.getElementById('myImage');
-        document.write(imageData);  
+        image.src = imageData;
       }
 
       function onFail(message) {
