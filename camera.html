@@ -10,14 +10,12 @@
     
     function onDeviceReady() {
       navigator.camera.getPicture(onSuccess, onFail, { 
-        quality: 80 ,
-        destinationType: Camera.DestinationType.DATA_URL
-      }); 
+        quality: 80 }); 
     }
 
     function onSuccess(imageData) {
       var image = document.getElementById('myImage');
-      image.src = "data:image/jpeg;base64," + imageData;
+      image.src = imageData;
     }
 
     function onFail(message) {
@@ -27,11 +25,12 @@
     $(function() {
       document.addEventListener("deviceready",onDeviceReady,false);
       
-      $("#submit").click(function(e){
+      $("#submit").bind("click", function(e){
         e.preventDefault();
+        $("#submit").unbind("click");
         $("#submit").html("");
         $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
-      });
+        $("#submit").text(imageData);
     });
 
     </script>
