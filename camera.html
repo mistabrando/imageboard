@@ -9,12 +9,15 @@
     <script type="text/javascript" charset="utf-8">
     
     function onDeviceReady() {
-      $("p").append("<a class = 'btn' onClick = 'startFile()'>Your Photos</a>");
-      $("p").append("<a class = 'btn' onClick = 'startCamera()'>Start Camera</a>");
+      //Holder spot, maybe we'll do something later
     }
 
     function startCamera() {
       navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
+    }
+
+    function startFile() {
+      navigator.camera.getPicture(onSuccess, onFail, { quality: 50, sourceType : Camera.PictureSourceType.PHOTOLIBRARY }); 
     }
 
     function onSuccess(imageData) {
@@ -63,7 +66,9 @@
   </head>
   <body align = "center">
     <p class = "well">
-      <textarea class="form-control" rows="3"></textarea>
+      <a class="btn btn-primary" onClick = "startCamera()">Start Camera</a> &nbsp;&nbsp;&nbsp;
+      <a class="btn btn-default" onClick = "startFile()">Select from Photos</a><br><br>
+      <textarea class="form-control" rows="3"></textarea><br>
       <img id = "myImage" width = "84%"></img>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
