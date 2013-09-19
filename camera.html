@@ -9,8 +9,12 @@
     <script type="text/javascript" charset="utf-8">
     
     function onDeviceReady() {
-      navigator.camera.getPicture(onSuccess, onFail, { 
-        quality: 50 }); 
+      $("p").append("<a class = 'btn' onClick = 'startFile()'>Your Photos</a>");
+      $("p").append("<a class = 'btn' onClick = 'startCamera()'>Start Camera</a>");
+    }
+
+    function startCamera() {
+      navigator.camera.getPicture(onSuccess, onFail, { quality: 50 }); 
     }
 
     function onSuccess(imageData) {
@@ -60,8 +64,7 @@
   <body align = "center">
     <p class = "well">
       <textarea class="form-control" rows="3"></textarea>
-      <div id = "imageInfo"></div>
-      <img id = "myImage" width = "100%"></img>
+      <img id = "myImage" width = "84%"></img>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
     <a class = "col-xs-12 btn btn-primary" id = "submit">
