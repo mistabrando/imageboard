@@ -27,7 +27,7 @@
     }
 
     function onFail(message) {
-        alert('Failed because: ' + message);
+        //do nothing
     }
 
     function uploadPhoto(imageURI) {
@@ -35,6 +35,11 @@
         options.fileKey="image";
         options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
         options.mimeType="image/jpeg";
+        
+        var params = {};
+        params.comment = $(".form-control").val();
+
+        options.params = params;
 
         var ft = new FileTransfer();
         ft.upload(imageURI, encodeURI("http://imgbrd.aws.af.cm/uploadImage"), win, fail, options);
@@ -45,8 +50,10 @@
       $("#submit").append("<icon class = 'icon-smile icon-2x'></icon>");
     }
 
-    function fail() {
-      alert("Upload Failed");
+    function fail(error) {
+      alert("An error has occurred: Code = " + error.code);
+      console.log("upload error source " + error.source);
+      console.log("upload error target " + error.target);
     }
 
     $(function() {
@@ -68,7 +75,7 @@
     <p class = "well">
       <a class="btn btn-primary" onClick = "startCamera()">Start Camera</a> &nbsp;&nbsp;&nbsp;
       <a class="btn btn-default" onClick = "startFile()">Select from Photos</a><br><br>
-      <textarea class="form-control" rows="3"></textarea><br>
+      <textarea class="form-control" rows="3" id="comment"></textarea><br>
       <img id = "myImage" width = "84%"></img>
     </p>
     <div class="row navbar-fixed-bottom" align = "center">
