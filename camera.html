@@ -48,12 +48,12 @@
     function win() {
       $("#submit").html("");
       $("#submit").append("<icon class = 'icon-smile icon-2x'></icon>");
+      history.go(-1);
     }
 
     function fail(error) {
       alert("An error has occurred: Code = " + error.code);
-      console.log("upload error source " + error.source);
-      console.log("upload error target " + error.target);
+      history.go(-1);
     }
 
     $(function() {
