@@ -24,6 +24,7 @@
       var image = document.getElementById('myImage');
       image.src = imageData;
       window.imageLocation = imageData;
+      uploadPhoto(window.imageLocation);
     }
 
     function onFail(message) {
@@ -45,15 +46,12 @@
         ft.upload(imageURI, encodeURI("http://imgbrd.aws.af.cm/uploadImage"), win, fail, options);
     }
 
-    function win() {
-      $("#submit").html("");
-      $("#submit").append("<icon class = 'icon-smile icon-2x'></icon>");
-      history.go(-1);
+    function win(r) {
+      window.responseurl = r.response;
     }
 
     function fail(error) {
       alert("An error has occurred: Code = " + error.code);
-      history.go(-1);
     }
 
     $(function() {
@@ -61,11 +59,16 @@
       document.addEventListener("deviceready",onDeviceReady,false);
       
       $("#submit").bind("click", function(e){
-        e.preventDefault();
-        $("#submit").unbind("click");
-        $("#submit").html("");
-        $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
-        uploadPhoto(window.imageLocation);
+          e.preventDefault();
+          $("#submit").unbind("click");
+          $("#submit").html("");
+          $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
+          var imageurl = window.responseurl;
+          var text = $("#comment").val();
+          var tag = "rdm";
+          $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
+
+          });
         });
     });
 
