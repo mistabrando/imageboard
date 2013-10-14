@@ -22,6 +22,7 @@
 
     function onSuccess(imageData) {
       window.imageLocation = imageData;
+      window.oktosend = false;
       uploadPhoto(window.imageLocation);
       var image = document.getElementById('myImage');
       image.src = imageData;
@@ -47,14 +48,17 @@
 
     function win(r) {
       window.responseurl = r.response;
+      window.oktosend = true;
     }
 
     function fail(error) {
-      alert("An error has occurred: Code = " + error.code);
+      alert("An error has occurred: Code = " + error.code);   
     }
 
     $(function() {
 
+      //initialize ok to send and add deviceready
+      window.oktosend = false;
       document.addEventListener("deviceready",onDeviceReady,false);
       
       $("#submit").bind("click", function(e){
@@ -62,12 +66,17 @@
           $("#submit").unbind("click");
           $("#submit").html("");
           $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
-          var imageurl = window.responseurl;
-          var text = $("#comment").val();
-          var tag = "rdm";
-          $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
+          while(!window.oktosend)
+          {
+            if(window.oktosend){
+              var imageurl = window.responseurl;
+              var text = $("#comment").val();
+              var tag = "rdm";
+              $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
 
-          });
+              });
+            }
+          }
         });
     });
 
