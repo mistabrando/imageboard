@@ -49,8 +49,6 @@
     function win(r) {
       window.responseurl = r.response;
       window.oktosend = true;
-      alert(window.responseurl);
-      alert(window.oktosend);
     }
 
     function fail(error) {
@@ -68,15 +66,16 @@
           $("#submit").unbind("click");
           $("#submit").html("");
           $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
-          
-          if(window.oktosend){
-            var imageurl = window.responseurl;
-            var text = $("#comment").val();
-            var tag = "rdm";
-            $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
-                $("#submit").html("");
-                $("#submit").append("<icon class = 'icon-smile icon-2x'></icon> Finished!");
-            });
+          while(!(window.oktosend)){
+            if(window.oktosend){
+              var imageurl = window.responseurl;
+              var text = $("#comment").val();
+              var tag = "rdm";
+              $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
+                  $("#submit").html("");
+                  $("#submit").append("<icon class = 'icon-smile icon-2x'></icon> Finished!");
+              });
+            }
           }
         });
     });
