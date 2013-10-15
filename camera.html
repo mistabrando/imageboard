@@ -73,7 +73,8 @@
               var text = $("#comment").val();
               var tag = "rdm";
               $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
-
+                  $("#submit").html("");
+                  $("#submit").append("<icon class = 'icon-smile icon-2x'></icon> Finished!");
               });
             }
           }
