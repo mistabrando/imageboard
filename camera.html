@@ -29,7 +29,6 @@
     }
 
     function onFail(message) {
-        //do nothing
     }
 
     function uploadPhoto(imageURI) {
@@ -52,13 +51,29 @@
     }
 
     function fail(error) {
-      alert("An error has occurred: Code = " + error.code);   
+      alert("An error has occurred: Code = " + error.code + ". Make sure you're connected to the internet and then hit ok.");
+      uploadPhoto(window.imageLocation);
+    }
+
+    function sentText(){
+      var imageurl = window.responseurl;
+      var text = $("#comment").val();
+      var tag = "rdm";
+      $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
+        $("#submit").html("");
+        $("#submit").append("<icon class = 'icon-smile icon-2x'></icon> Finished!");
+        window.textSuccess = true;
+      }).fail(function(){
+        alert("Failed to send. Make sure you're connected to the internet and then hit ok.");
+        sentText();
+      });
     }
 
     $(function() {
 
       //initialize ok to send and add deviceready
       window.oktosend = false;
+      window.responseurl = -1; // -1 either means no response or rejected response!
       document.addEventListener("deviceready",onDeviceReady,false);
       
       $("#submit").bind("click", function(e){
@@ -66,17 +81,15 @@
           $("#submit").unbind("click");
           $("#submit").html("");
           $("#submit").append("<icon class = 'icon-cloud-upload icon-2x'></icon> Uploading ...");
-          while(!(window.oktosend)){
-            if(window.oktosend){
-              var imageurl = window.responseurl;
-              var text = $("#comment").val();
-              var tag = "rdm";
-              $.post("http://imgbrd.aws.af.cm/createPost", { 'url' : imageurl, 'text' : text, 'tag' : tag }, function() {
-                  $("#submit").html("");
-                  $("#submit").append("<icon class = 'icon-smile icon-2x'></icon> Finished!");
-              });
+
+          window.textSuccess = false;
+          while(!(window.textSuccess)){
+            if(window.oktosend && window.responseurl != -1){
+              sendText();
+              break;
             }
           }
+
         });
     });
 
