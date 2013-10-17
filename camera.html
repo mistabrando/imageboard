@@ -55,7 +55,7 @@
       uploadPhoto(window.imageLocation);
     }
 
-    function sentText(){
+    function sendText(){
       var imageurl = window.responseurl;
       var text = $("#comment").val();
       var tag = "rdm";
@@ -65,7 +65,7 @@
         window.textSuccess = true;
       }).fail(function(){
         alert("Failed to send. Make sure you're connected to the internet and then hit ok.");
-        sentText();
+        sendText();
       });
     }
 
