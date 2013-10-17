@@ -86,7 +86,7 @@
           while(!(window.textSuccess)){
             if(window.oktosend && window.responseurl != -1){
               sendText();
-              break;
+              window.textSuccess = true;
             }
           }
 
